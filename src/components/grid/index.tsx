@@ -1,14 +1,14 @@
-import { GridContainer } from "./style";
+import { GridContainer, GridItem } from "./style";
+import { GridProps, Item } from "./types";
 
-export default function Grid() {
 
-    const items = ["mah oe 1",
-                   "mah oe 2",
-                   "mah oe 3",
-                   "mah oe 4",];
+
+export default function Grid({data}: GridProps) {
     return (
         <GridContainer>
-            {items.map((item) => (<div>{item}</div>))}
+            {data.map((item: Item) => (
+                <GridItem>{item.title}</GridItem>
+            ))}
         </GridContainer>
     )
 }
