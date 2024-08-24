@@ -3,11 +3,13 @@ import { GridProps, Item } from "./types";
 
 
 
-export default function Grid({data}: GridProps) {
+export default function Grid({data=[]}: GridProps) {
     return (
         <GridContainer>
             {data.map((item: Item) => (
-                <GridItem>{item.title}</GridItem>
+                <GridItem key={crypto.randomUUID()}>
+                    {item.title}
+                </GridItem>
             ))}
         </GridContainer>
     )
