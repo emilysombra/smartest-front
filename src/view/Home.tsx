@@ -4,7 +4,7 @@ import { getCareersList, getCoursesList } from '../controller/http_client.ts';
 // models
 import { Item } from '../models/grid.ts'
 // styles + components
-import Grid from '../components/grid/index.tsx';
+import Grid from './components/grid/index.tsx';
 import { AppContainer } from '../styles/global.ts'
 
 
