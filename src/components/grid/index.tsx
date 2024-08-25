@@ -1,5 +1,5 @@
 import { GridContainer, GridItem } from "./style";
-import { GridProps, Item } from "./types";
+import { GridProps, Item } from "../../models/grid";
 
 
 
