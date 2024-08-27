@@ -7,7 +7,8 @@ export const getList = async (url: string): Promise<Item[]> => {
 
     await axios.get(url)
         .then((response) => {
-            if (Array.isArray(response.data)) finalResponse = response.data;    
+            if (Array.isArray(response.data))
+                finalResponse = response.data;
           })
         .catch((err) => {
             console.log(err);
