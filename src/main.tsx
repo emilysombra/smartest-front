@@ -6,6 +6,7 @@ import Header from './view/components/header/index.tsx'
 import Home from './view/Home.tsx'
 // styles
 import { GlobalStyle } from './styles/global.ts'
+import BlogItem from './view/components/blog_item/index.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,6 +15,8 @@ createRoot(document.getElementById('root')!).render(
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="courses/:id" element={<BlogItem/>} />
+        <Route path="careers/:id" element={<BlogItem/>} />
       </Routes>
       {/* <App /> */}
     </BrowserRouter>
