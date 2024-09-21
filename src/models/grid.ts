@@ -1,6 +1,8 @@
 export interface Item {
-    title?: string;
+    id?: number
+    title?: string
     description?: string
+    reference?: string
 }
 
 export interface GridProps {
