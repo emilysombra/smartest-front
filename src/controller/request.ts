@@ -11,7 +11,6 @@ export const getList = async (url: string): Promise<Item[]> => {
 
     await API.get(url)
         .then((response) => {
-            console.log(response.data)
             if (Array.isArray(response.data))
                 finalResponse = response.data;
           })
@@ -20,3 +19,16 @@ export const getList = async (url: string): Promise<Item[]> => {
         });
     return finalResponse;
 };
+
+export const getItem = async (url: string): Promise<Item> => {
+    var finalResponse: Item = {};
+
+    await API.get(url)
+        .then((response) => {
+            finalResponse = response.data;
+          })
+        .catch((err) => {
+            console.log(err);
+        });
+    return finalResponse;
+}

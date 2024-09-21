@@ -10,8 +10,8 @@ export default function Grid({data=[]}: GridProps) {
             
             {data.map((item: Item) => (
                 <Link
-                    to={`courses/${crypto.randomUUID()}`}>
-                    <GridItem key={crypto.randomUUID()}>
+                    to={`courses/${crypto.randomUUID().toString()}`}>
+                    <GridItem key={crypto.randomUUID().toString()}>
                     {item.title}
                 </GridItem>
                 </Link>
