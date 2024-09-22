@@ -7,4 +7,5 @@ export interface Item {
 
 export interface GridProps {
     data: Item[]
+    type: string
 }

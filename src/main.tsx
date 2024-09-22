@@ -15,8 +15,8 @@ createRoot(document.getElementById('root')!).render(
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="courses/:id" element={<BlogItem/>} />
-        <Route path="careers/:id" element={<BlogItem/>} />
+        <Route path="courses/:id" element={<BlogItem type='courses'/>} />
+        <Route path="careers/:id" element={<BlogItem type='careers'/>} />
       </Routes>
       {/* <App /> */}
     </BrowserRouter>

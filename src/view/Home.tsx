@@ -21,8 +21,8 @@ export default function Home() {
 
   return (
     <AppContainer>
-      <Grid data={courses}/>
-      <Grid data={careers}/>
+      <Grid data={courses} type="courses"/>
+      <Grid data={careers} type="careers"/>
     </AppContainer>
   )
 }
