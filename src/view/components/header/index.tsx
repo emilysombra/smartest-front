@@ -8,6 +8,9 @@ export default function Header() {
             <Link to="/">
                 <Logo />
             </Link>
+            <Link to="/chat">
+                Chat
+            </Link>
         </HeaderContainer>
     )
 }

@@ -18,6 +18,11 @@ export const GlobalStyle = createGlobalStyle`
   li {
     list-style: none;
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `
 
 export const AppContainer = styled.div`
