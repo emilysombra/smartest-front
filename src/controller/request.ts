@@ -32,3 +32,11 @@ export const getItem = async (url: string): Promise<Item> => {
         });
     return finalResponse;
 }
+
+export const getResponse = async () => {
+    await API.post("url")
+        .then()
+        .catch((err) => {
+            console.log(err)
+        })
+}
