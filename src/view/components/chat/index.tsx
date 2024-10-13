@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style";
+import Form from "../form";
 
 export default function Chat(){
-    const [inputPrompt, setInputPrompt] = useState("")
-    const [chatLog, setChatLog] = useState(["", ""])
-
-    const onClickSubmit = async () => {
-        alert("deu certo")
-    }
+    const [chatLog, setChatLog] = useState(["teste1", "teste2"])
 
     return (
         <ChatContainer>
@@ -15,14 +11,18 @@ export default function Chat(){
                 Teste Chat
             </h1>
             {chatLog.length > 0 ? (
-                <ChatItem>
-                    teste
-                </ChatItem>
+                chatLog.map((item) => (
+                    <ChatItem>
+                        {item}
+                    </ChatItem>
+                ))
+                
             ) : (
                 <WelcomeBoxChat>
                     Boas vindas ao Chatbot do Smartest!!
                 </WelcomeBoxChat>
             )}
+            <Form />
         </ChatContainer>
     )
 }
