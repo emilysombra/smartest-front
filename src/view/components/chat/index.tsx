@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style";
 import Form from "../form";
 
 export default function Chat(){
-    const [chatLog, setChatLog] = useState(["teste1", "teste2"])
+    const [chatLog, setChatLog] = useState<string[]>([])
+
+    useEffect(() => {
+        setChatLog(["teste1", "teste2"])
+    }, [])
 
     return (
         <ChatContainer>
