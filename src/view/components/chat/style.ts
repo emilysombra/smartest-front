@@ -14,5 +14,20 @@ export const ChatContainer = styled.section`
 export const WelcomeBoxChat = styled.div``
 
 export const ChatItem = styled.div`
-    
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 24px;
+    display: flex;
+    column-gap: 25px;    
+
+    &.bot-message{
+        //background-color: cyan;
+        justify-content: left;
+    }
+
+    &.customer-message{
+        //background-color: wheat;
+        justify-content: right;
+    }
 `
