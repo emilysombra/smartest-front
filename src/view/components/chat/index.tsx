@@ -3,15 +3,13 @@ import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style";
 import Form from "../form";
 import { Message } from "../../../models/chat";
 import { isMessageBot } from "../../../logic/chat";
+import { getMessages } from "../../../controller/http_client";
 
 export default function Chat(){
     const [chatLog, setChatLog] = useState<Message[]>([])
 
-    useEffect(() => {
-        setChatLog([
-            {content: "teste1", sender: "bot"},
-            {content: "teste2", sender: "customer"}
-        ])
+    useEffect(() => {    
+        getMessages(setChatLog, "3352f124-ea31-4c99-b9d1-111d97e4d892")
     }, [])
 
     return (
