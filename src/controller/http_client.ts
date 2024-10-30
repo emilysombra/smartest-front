@@ -12,4 +12,4 @@ export const getCareerItem = async (setCareer: (arg0: Item) => void, id: string)
 
 export const getChatBotResponse = async (input: string) => alert(input)
 
-export const getMessages = async (setChatLog: (arg0: Message[]) => void, user: string) => setChatLog(await getMessageList(`/messages/`))
+export const getMessages = async (setChatLog: (arg0: Message[]) => void, user: string) => setChatLog(await getMessageList(`/messages/?user=${user}`))

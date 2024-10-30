@@ -35,10 +35,7 @@ export const getItem = async (url: string): Promise<Item> => {
 }
 
 export const getMessageList = async (url: string): Promise<Message[]> => {
-    var finalResponse: Message[] = [
-        {content: "teste1", sender: "bot"},
-        {content: "teste2", sender: "user"}
-    ];
+    var finalResponse: Message[] = [];
     
     await API.get(url)
         .then((response) => {
