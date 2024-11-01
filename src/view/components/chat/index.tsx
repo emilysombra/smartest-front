@@ -31,7 +31,7 @@ export default function Chat(){
                     Boas vindas ao Chatbot do Smartest!!
                 </WelcomeBoxChat>
             )}
-            <Form />
+            <Form setChatLog={setChatLog} currentLog={chatLog}/>
         </ChatContainer>
     )
 }
