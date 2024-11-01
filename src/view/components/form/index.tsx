@@ -15,9 +15,10 @@ export default function Form({setChatLog, currentLog}: FormChatProps){
                     content: inputPrompt,
                     sender: "",
                     created_at: Date.now().toString()
-                },              
+                },
+                await getChatBotResponse(inputPrompt)          
             ])
-            getChatBotResponse(inputPrompt)
+            
             setInputPrompt("")
         }
     }

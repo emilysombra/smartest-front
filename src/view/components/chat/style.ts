@@ -22,12 +22,10 @@ export const ChatItem = styled.div`
     column-gap: 25px;    
 
     &.bot-message{
-        //background-color: cyan;
         justify-content: left;
     }
 
     &.customer-message{
-        //background-color: wheat;
         justify-content: right;
     }
 `
