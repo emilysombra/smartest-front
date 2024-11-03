@@ -49,14 +49,19 @@ export const getMessageList = async (url: string): Promise<Message[]> => {
 };
 
 export const getMessageResponse = async (input: string) => {
-    return {
-        content: "generated message",
-        sender: "e7d81ea5-d89c-40b3-9cd3-3ed8fb6c53d5",
-        created_at: Date.now().toString()
+    var message = {}
+    var body = {
+        content: input,
+        sender: "3352f124-ea31-4c99-b9d1-111d97e4d892",
+        receiver: "e7d81ea5-d89c-40b3-9cd3-3ed8fb6c53d5"
     }
-    await API.post("/messages/")
-        .then()
+    await API.post("/messages/", body)
+        .then((response) => {
+            message = response.data;
+          })
         .catch((err) => {
             console.log(err)
         })
+
+    return message
 }
