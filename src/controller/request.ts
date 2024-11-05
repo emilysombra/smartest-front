@@ -55,8 +55,11 @@ export const getMessageResponse = async (input: string) => {
         sender: "3352f124-ea31-4c99-b9d1-111d97e4d892",
         receiver: "e7d81ea5-d89c-40b3-9cd3-3ed8fb6c53d5"
     }
-    var options = {headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN_ACCESS}`}}
+    var options = {
+        headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN_ACCESS}`
+        }
+    }
     await API.post("/messages/", body, options)
         .then((response) => {
             message = response.data

@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
-import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style";
-import Form from "../form";
-import { Message } from "../../../models/chat";
-import { isMessageBot } from "../../../logic/chat";
-import { getMessages } from "../../../controller/http_client";
+import { useEffect, useState } from "react"
+import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style"
+import Form from "../form"
+import { Message } from "../../../models/chat"
+import { isMessageBot } from "../../../logic/chat"
+import { getMessages } from "../../../controller/http_client"
+import { useCookies } from "react-cookie"
 
 export default function Chat(){
     const [chatLog, setChatLog] = useState<Message[]>([])
+    const [cookies, setCookie, _removeCookie] = useCookies(['user-id'])
 
-    useEffect(() => {    
+    useEffect(() => {
+        if(!cookies["user-id"])
+            setCookie('user-id', crypto.randomUUID().toString())
         getMessages(setChatLog, "3352f124-ea31-4c99-b9d1-111d97e4d892")
     }, [])
 
