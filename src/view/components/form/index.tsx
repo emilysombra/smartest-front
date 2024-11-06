@@ -9,17 +9,18 @@ export default function Form({setChatLog, currentLog}: FormChatProps){
     const onClickSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault()
         if(inputPrompt.trim() !== ""){
-            setChatLog([
-                ...currentLog,
-                {
-                    content: inputPrompt,
-                    sender: "",
-                    created_at: Date.now().toString()
-                },
-                await getChatBotResponse(inputPrompt)          
-            ])
-            
+            var newMessage = {
+                content: inputPrompt,
+                sender: "",
+                created_at: Date.now().toString()
+            }
+            var newList = [...currentLog, newMessage]
             setInputPrompt("")
+            setChatLog(newList)
+            setChatLog([
+                ...newList,
+                await getChatBotResponse(inputPrompt)
+            ])           
         }
     }
 
