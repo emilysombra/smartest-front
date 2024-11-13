@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style"
 import Form from "../form"
 import { Message } from "../../../models/chat"
@@ -9,6 +9,12 @@ import { useCookies } from "react-cookie"
 export default function Chat(){
     const [chatLog, setChatLog] = useState<Message[]>([])
     const [cookies, setCookie, _removeCookie] = useCookies(['user-id'])
+
+    const messagesEndRef = useRef<null | HTMLDivElement>(null)
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+      }, [chatLog]);
 
     useEffect(() => {
         if(!cookies["user-id"])
@@ -36,6 +42,7 @@ export default function Chat(){
                 </WelcomeBoxChat>
             )}
             <Form setChatLog={setChatLog} currentLog={chatLog}/>
+            <div ref={messagesEndRef} />
         </ChatContainer>
     )
 }
