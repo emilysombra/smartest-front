@@ -48,11 +48,11 @@ export const getMessageList = async (url: string): Promise<Message[]> => {
     return finalResponse
 }
 
-export const getMessageResponse = async (input: string) => {
+export const getMessageResponse = async (input: string, sender: string) => {
     var message = {}
     var body = {
         content: input,
-        sender: "3352f124-ea31-4c99-b9d1-111d97e4d892",
+        sender: sender,
         receiver: "e7d81ea5-d89c-40b3-9cd3-3ed8fb6c53d5"
     }
     var options = {

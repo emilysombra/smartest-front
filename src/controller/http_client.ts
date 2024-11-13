@@ -10,6 +10,6 @@ export const getCourseItem = async (setCourse: (arg0: Item) => void, id: string)
 
 export const getCareerItem = async (setCareer: (arg0: Item) => void, id: string) => setCareer(await getItem(`/careers/${id}`))
 
-export const getChatBotResponse = async (input: string): Promise<Message> => getMessageResponse(input)
+export const getChatBotResponse = async (input: string, sender: string): Promise<Message> => getMessageResponse(input, sender)
 
 export const getMessages = async (setChatLog: (arg0: Message[]) => void, user: string) => setChatLog(await getMessageList(`/messages/?user=${user}`))

@@ -19,7 +19,7 @@ export default function Chat(){
     useEffect(() => {
         if(!cookies["user-id"])
             setCookie('user-id', crypto.randomUUID().toString())
-        getMessages(setChatLog, "3352f124-ea31-4c99-b9d1-111d97e4d892")
+        getMessages(setChatLog, cookies["user-id"])
     }, [])
 
     return (
