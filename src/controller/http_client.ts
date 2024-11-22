@@ -1,6 +1,6 @@
 import { Message } from "../models/chat"
 import { Item } from "../models/grid"
-import { getItem, getList, getMessageList, getMessageResponse } from "./request"
+import { getItem, getList, getMessageList, getMessageResponse, loginUser } from "./request"
 
 export const getCoursesList = async (setCourses: (arg0: Item[]) => void) => setCourses(await getList("/courses/"))
 
@@ -13,3 +13,5 @@ export const getCareerItem = async (setCareer: (arg0: Item) => void, id: string)
 export const getChatBotResponse = async (input: string, sender: string): Promise<Message> => getMessageResponse(input, sender)
 
 export const getMessages = async (setChatLog: (arg0: Message[]) => void, user: string) => setChatLog(await getMessageList(`/messages/?user=${user}`))
+
+export const getAccessToken = async () => loginUser("")

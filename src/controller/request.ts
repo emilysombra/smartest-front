@@ -70,3 +70,21 @@ export const getMessageResponse = async (input: string, sender: string) => {
 
     return message
 }
+
+export const loginUser = async (user: string) => {
+    var tokens = {}
+    var body = {
+        username: user,
+        password: "sender"
+    }
+
+    await API.post("/auth/register/", body)
+        .then((response) => {
+            tokens = response.data
+          })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    return tokens
+}
