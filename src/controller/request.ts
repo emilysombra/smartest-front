@@ -48,6 +48,24 @@ export const getMessageList = async (url: string): Promise<Message[]> => {
     return finalResponse
 }
 
+export const loginUser = async (user: string) => {
+    var tokens = {}
+    var body = {
+        username: user,
+        password: import.meta.env.VITE_API_ACCESS
+    }
+
+    await API.post("/auth/login/", body)
+        .then((response) => {
+            tokens = response.data
+          })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    return tokens
+}
+
 export const getMessageResponse = async (input: string, sender: string) => {
     var message = {}
     var body = {
@@ -69,22 +87,4 @@ export const getMessageResponse = async (input: string, sender: string) => {
         })
 
     return message
-}
-
-export const loginUser = async (user: string) => {
-    var tokens = {}
-    var body = {
-        username: user,
-        password: "sender"
-    }
-
-    await API.post("/auth/register/", body)
-        .then((response) => {
-            tokens = response.data
-          })
-        .catch((err) => {
-            console.log(err)
-        })
-
-    return tokens
 }
