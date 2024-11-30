@@ -3,14 +3,18 @@ import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style"
 import Form from "../form"
 import { Message } from "../../../models/chat"
 import { isMessageBot } from "../../../logic/chat"
-import { getMessages } from "../../../controller/http_client"
+import { getAccessToken, getMessages } from "../../../controller/http_client"
 import { useCookies } from "react-cookie"
 
 export default function Chat(){
     const [chatLog, setChatLog] = useState<Message[]>([])
-    const [cookies, setCookie, _removeCookie] = useCookies(['user-id'])
+    const [cookies, setCookie, _removeCookie] = useCookies(['user-id', 'access'])
 
     const messagesEndRef = useRef<null | HTMLDivElement>(null)
+
+    const login = async () => {
+        setCookie('access', await getAccessToken(cookies["user-id"]))
+    }
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -20,6 +24,9 @@ export default function Chat(){
         if(!cookies["user-id"])
             setCookie('user-id', crypto.randomUUID().toString())
         getMessages(setChatLog, cookies["user-id"])
+
+        if(!cookies["access"])
+            setCookie('access', getAccessToken(cookies["user-id"]))
     }, [])
 
     return (
