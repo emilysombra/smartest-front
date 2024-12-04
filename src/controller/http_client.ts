@@ -14,4 +14,4 @@ export const getChatBotResponse = async (input: string, sender: string): Promise
 
 export const getMessages = async (setChatLog: (arg0: Message[]) => void, user: string) => setChatLog(await getMessageList(`/messages/?user=${user}`))
 
-export const getAccessToken = async (user: string) => {return await loginUser(user)}
+export const getAccessToken = async (user: string):Promise<string> => {return await loginUser(user)}

@@ -12,10 +12,6 @@ export default function Chat(){
 
     const messagesEndRef = useRef<null | HTMLDivElement>(null)
 
-    const login = async () => {
-        setCookie('access', await getAccessToken(cookies["user-id"]))
-    }
-
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
       }, [chatLog]);
