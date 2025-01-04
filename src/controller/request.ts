@@ -4,7 +4,7 @@ import { Item } from "../models/grid"
 import { Message } from "../models/chat"
 
 const API = axios.create({
-    baseURL: 'http://127.0.0.1:8000'
+    baseURL: import.meta.env.VITE_API_BACKEND_URL
 })
 
 export const getList = async (url: string): Promise<Item[]> => {
