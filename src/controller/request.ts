@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 // models
 import { Item } from "../models/grid"
 import { Message } from "../models/chat"
@@ -60,10 +60,34 @@ export const loginUser = async (user: string):Promise<string> => {
             if(response.hasOwnProperty('access'))
                 token = response.data.access
           })
-        .catch((err) => {
+        .catch((err: AxiosError) => {
+            if(err.response!.status === 401){
+                // register new user when unauthorized
+                console.log("Unauthorized")
+            }
             console.log(err)
         })
 
+    return token
+}
+
+export const registerUser = async (user: string) => {
+    var token = ''
+    var body = {
+        username: user,
+        password: import.meta.env.VITE_API_ACCESS
+    }
+
+    await API.post("/auth/register/", body)
+        .then((response) => {
+            if(response.hasOwnProperty('access'))
+                token = response.data.access
+          })
+        .catch((err: AxiosError) => {
+            console.log(err)
+        })
+
+    console.log("token registered", token)
     return token
 }
 
