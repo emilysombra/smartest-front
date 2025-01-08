@@ -57,6 +57,7 @@ export const loginUser = async (user: string):Promise<string> => {
 
     await API.post("/auth/login/", body)
         .then((response) => {
+            console.log('response:', response)
             if(response.hasOwnProperty('access'))
                 token = response.data.access
           })
@@ -65,7 +66,7 @@ export const loginUser = async (user: string):Promise<string> => {
                 // register new user when unauthorized
                 console.log("Unauthorized")
             }
-            console.log(err)
+            console.log('error:', err)
         })
 
     return token
