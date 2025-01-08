@@ -91,7 +91,7 @@ export const registerUser = async (user: string) => {
     return token
 }
 
-export const getMessageResponse = async (input: string, sender: string) => {
+export const getMessageResponse = async (input: string, sender: string, access: string) => {
     var message = {}
     var body = {
         content: input,
@@ -100,7 +100,7 @@ export const getMessageResponse = async (input: string, sender: string) => {
     }
     var options = {
         headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN_ACCESS}`
+            Authorization: `Bearer ${access}`
         }
     }
     await API.post("/messages/", body, options)
