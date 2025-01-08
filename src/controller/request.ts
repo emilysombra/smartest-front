@@ -57,7 +57,6 @@ export const loginUser = async (user: string):Promise<string> => {
 
     await API.post("/auth/login/", body)
         .then((response) => {
-            console.log('response:', response)
             if(response.data.hasOwnProperty('access'))
                 token = response.data.access
           })
