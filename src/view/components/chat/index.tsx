@@ -21,8 +21,10 @@ export default function Chat(){
             setCookie('user-id', crypto.randomUUID().toString())
         getMessages(setChatLog, cookies["user-id"])
 
+        console.log(typeof(setCookie))
         if(!cookies["access"])
-            setCookie('access', getAccessToken(cookies["user-id"]))
+            setCookie('access', getAccessToken(cookies["user-id"], setCookie))
+            // setCookie('access', getAccessToken(cookies["user-id"]))
     }, [])
 
     return (
