@@ -60,10 +60,11 @@ export const loginUser = async (user: string):Promise<string> => {
             if(response.data.hasOwnProperty('access'))
                 token = response.data.access
           })
-        .catch((err: AxiosError) => {
+        .catch(async (err: AxiosError) => {
             if(err.response!.status === 401){
-                // register new user when unauthorized
-                console.log("Unauthorized")
+                console.log("Unauthorized user, registering...")
+                await registerUser(user)
+                await loginUser(user)
             }
             console.log('error:', err)
         })
@@ -72,7 +73,6 @@ export const loginUser = async (user: string):Promise<string> => {
 }
 
 export const registerUser = async (user: string) => {
-    var token = ''
     var body = {
         username: user,
         password: import.meta.env.VITE_API_ACCESS
@@ -80,15 +80,12 @@ export const registerUser = async (user: string) => {
 
     await API.post("/auth/register/", body)
         .then((response) => {
-            if(response.hasOwnProperty('access'))
-                token = response.data.access
+            console.log(response)
+            console.log('Succesfully registered')
           })
         .catch((err: AxiosError) => {
             console.log(err)
         })
-
-    console.log("token registered", token)
-    return token
 }
 
 export const getMessageResponse = async (input: string, sender: string, access: string) => {
