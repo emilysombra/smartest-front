@@ -65,6 +65,10 @@ export const loginUser = async (user: string):Promise<string> => {
                 console.log("Unauthorized user, registering...")
                 await registerUser(user)
                 await loginUser(user)
+            }else if (err.response!.status === 400){
+                console.log("Bad Request")
+                console.log('error:', err)
+                console.log('body:', body)
             }
             else{
                 console.log('Unknown HTTP Error')
