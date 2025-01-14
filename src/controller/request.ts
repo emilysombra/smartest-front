@@ -66,6 +66,12 @@ export const loginUser = async (user: string):Promise<string> => {
                 await registerUser(user)
                 await loginUser(user)
             }
+            else{
+                console.log('Unknown HTTP Error')
+                console.log('error:', err)
+            }
+        }).catch((err) => {
+            console.log('Unknown error')
             console.log('error:', err)
         })
 
