@@ -66,16 +66,16 @@ export const loginUser = async (user: string):Promise<string> => {
                 await registerUser(user)
                 await loginUser(user)
             }else if (err.response!.status === 400){
-                console.log("Bad Request")
+                console.log("Bad Request (login)")
                 console.log('error:', err)
                 console.log('body:', body)
             }
             else{
-                console.log('Unknown HTTP Error')
+                console.log('Unknown HTTP Error (login)')
                 console.log('error:', err)
             }
         }).catch((err) => {
-            console.log('Unknown error')
+            console.log('Unknown error (login)')
             console.log('error:', err)
         })
 
@@ -94,7 +94,11 @@ export const registerUser = async (user: string) => {
             console.log('Succesfully registered')
           })
         .catch((err: AxiosError) => {
-            console.log(err)
+            console.log('Unknown HTTP Error (register)')
+            console.log('error:', err)
+        }).catch((err) => {
+            console.log('Unknown error (register)')
+            console.log('error:', err)
         })
 }
 
