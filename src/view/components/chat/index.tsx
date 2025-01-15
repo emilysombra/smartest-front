@@ -22,7 +22,7 @@ export default function Chat(){
         getMessages(setChatLog, cookies["user-id"])
 
         if(!cookies["access"])
-            setCookie('access', getAccessToken(cookies["user-id"], setCookie))
+            getAccessToken(cookies["user-id"], setCookie)
     }, [])
 
     return (
