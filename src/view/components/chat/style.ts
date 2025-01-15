@@ -7,11 +7,14 @@ export const ChatContainer = styled.section`
     line-height: 24px;
     color: #61656b;
     font-size: 16px;
-    height: 80vh;
+    height: 100vh;
     overflow-y: auto;
+    text-align: center;
 `
 
-export const WelcomeBoxChat = styled.div``
+export const WelcomeBoxChat = styled.div`
+    text-align: center;
+`
 
 export const ChatItem = styled.div`
     width: 100%;

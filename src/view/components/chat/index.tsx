@@ -32,9 +32,7 @@ export default function Chat(){
 
     return (
         <ChatContainer>
-            <h1>
-                Teste Chat
-            </h1>
+            <h1>Smartest Chatbot</h1>
             {chatLog.length > 0 ? (
                 chatLog.map((item) => (
                     <ChatItem className={isMessageBot(item) ? "bot-message" : "customer-message"}>
@@ -43,10 +41,9 @@ export default function Chat(){
                         </span>
                     </ChatItem>
                 ))
-                
             ) : (
                 <WelcomeBoxChat>
-                    Boas vindas ao Chatbot do Smartest!!
+                    <span>Boas vindas ao Chatbot do Smartest!!</span>
                 </WelcomeBoxChat>
             )}
             <Form setChatLog={setChatLog} currentLog={chatLog}/>
