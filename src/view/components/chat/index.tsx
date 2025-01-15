@@ -17,12 +17,17 @@ export default function Chat(){
       }, [chatLog]);
 
     useEffect(() => {
+        let user_id = crypto.randomUUID().toString()
+
         if(!cookies["user-id"])
-            setCookie('user-id', crypto.randomUUID().toString())
-        getMessages(setChatLog, cookies["user-id"])
+            setCookie('user-id', user_id)
+        else
+            user_id = cookies['user-id']
+
+        getMessages(setChatLog, user_id)
 
         if(!cookies["access"])
-            getAccessToken(cookies["user-id"], setCookie)
+            getAccessToken(user_id, setCookie)
     }, [])
 
     return (
