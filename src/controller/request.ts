@@ -64,7 +64,7 @@ export const loginUser = async (user: string):Promise<string> => {
             if(err.response!.status === 401){
                 console.log("Unauthorized user, registering...")
                 await registerUser(user)
-                await loginUser(user)
+                token = await loginUser(user)
             }else if (err.response!.status === 400){
                 console.log("Bad Request (login)")
                 console.log('error:', err)
