@@ -10,7 +10,11 @@ export default function Header() {
                 <Logo />
             </Link>
             <Link to="/chat">
-                <MenuItem />
+                <MenuItem title='Chatbot' />
+            </Link>
+
+            <Link to="/">
+                <MenuItem title='Como funciona' />
             </Link>
         </HeaderContainer>
     )

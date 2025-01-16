@@ -1,9 +1,10 @@
+import { MenuItemProps } from "../../../models/menu";
 import { ItemMenuContainer } from "./style";
 
-export default function MenuItem() {
+export default function MenuItem({title}: MenuItemProps) {
     return (
         <ItemMenuContainer>
-            <span>Chatbot</span>
+            <span>{title}</span>
         </ItemMenuContainer>
     )
 }
