@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../logo";
 import { HeaderContainer } from "./style";
+import MenuItem from "../menu_item";
 
 export default function Header() {
     return(
@@ -9,7 +10,7 @@ export default function Header() {
                 <Logo />
             </Link>
             <Link to="/chat">
-                Chat
+                <MenuItem />
             </Link>
         </HeaderContainer>
     )
