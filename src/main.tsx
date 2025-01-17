@@ -19,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="courses/:id" element={<BlogItem type='courses'/>} />
         <Route path="careers/:id" element={<BlogItem type='careers'/>} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/how-it-works" element={<Home/>} />
       </Routes>
       {/* <App /> */}
     </BrowserRouter>

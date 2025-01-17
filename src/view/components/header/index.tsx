@@ -13,8 +13,8 @@ export default function Header() {
                 <MenuItem title='Chatbot' />
             </Link>
 
-            <Link to="/">
-                <MenuItem title='Como funciona' />
+            <Link to="/how-it-works">
+                <MenuItem title='Como funciona?' />
             </Link>
         </HeaderContainer>
     )
