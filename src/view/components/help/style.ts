@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Container = styled.section`
+    padding-top: 10px;
+`
+
 export const Title = styled.h1`
     margin-top: 0px;
     text-align: center;
