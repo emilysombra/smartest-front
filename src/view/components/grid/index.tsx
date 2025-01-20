@@ -1,10 +1,12 @@
-import { GridContainer, GridItem } from "./style";
+import { GridContainer, GridItem, GridSection, GridTitle } from "./style";
 import { GridProps, Item } from "../../../models/grid";
 import { Link } from "react-router-dom";
 
 export default function Grid({data=[], type='courses'}: GridProps) {
     return (
-        <GridContainer>
+        <GridSection>
+            <GridTitle>{type === 'courses' ? 'Conteúdos' : 'Carreiras'}</GridTitle>
+            <GridContainer>
             
             {data.map((item: Item) => (
                 <Link
@@ -15,5 +17,6 @@ export default function Grid({data=[], type='courses'}: GridProps) {
                 </Link>
             ))}
         </GridContainer>
+        </GridSection>
     )
 }

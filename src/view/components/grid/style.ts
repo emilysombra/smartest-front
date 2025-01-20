@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const GridSection = styled.section`
+    padding-top: 10px;
+`
+
+export const GridTitle = styled.h2`
+    margin-top: 0px;
+    text-align: center;
+`
+
 export const GridContainer = styled.div`
     display: grid;
     grid-template-columns: auto auto auto;
