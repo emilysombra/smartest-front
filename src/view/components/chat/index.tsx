@@ -21,7 +21,7 @@ export default function Chat(){
         setSrollPosition(position);
         if (scrollPosition > 50)
             setBackTopEnabled(true)
-        else
+        else if(scrollPosition < 50)
             setBackTopEnabled(false)
     }
 
