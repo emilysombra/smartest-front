@@ -58,8 +58,8 @@ export default function Chat(){
             {chatLog.length > 0 ? (
                 chatLog.map((item) => (
                     <ChatItem className={isMessageBot(item) ? "bot-message" : "customer-message"}>
-                        <span>
-                            <strong>{isMessageBot(item) ? "Smartest:" : "Você:"}</strong> <span dangerouslySetInnerHTML={{__html: setHTML(item)!}}/>
+                        <span dangerouslySetInnerHTML={{__html: setHTML(item)!}}>
+                            <strong>{isMessageBot(item) ? "Smartest:" : "Você:"}</strong>
                         </span>
                     </ChatItem>
                 ))
