@@ -1,4 +1,5 @@
 import Showdown from "showdown"
+import DOMPurify from "dompurify"
 import { Message } from "../models/chat"
 
 const converter = new Showdown.Converter({
@@ -11,5 +12,5 @@ const converter = new Showdown.Converter({
 export const isMessageBot = (msg: Message): boolean => msg.sender === import.meta.env.VITE_API_BOT_UUID
 
 export const setHTML = (msg: Message) => isMessageBot(msg) ?
-                                            converter.makeHtml(msg.content!) :
+                                            converter.makeHtml(DOMPurify.sanitize(msg.content!)) :
                                             msg.content
