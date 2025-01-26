@@ -13,4 +13,4 @@ export const isMessageBot = (msg: Message): boolean => msg.sender === import.met
 
 export const setHTML = (msg: Message) => isMessageBot(msg) ?
                                             converter.makeHtml(DOMPurify.sanitize(msg.content!)) :
-                                            msg.content!.concat("<br>")
+                                            "<br>".concat(msg.content!)
