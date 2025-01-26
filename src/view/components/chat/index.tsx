@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
+import { useCookies } from "react-cookie"
 import { ChatContainer, ChatItem, WelcomeBoxChat } from "./style"
 import Form from "../form"
 import { Message } from "../../../models/chat"
-import { isMessageBot } from "../../../logic/chat"
+import { isMessageBot, setHTML } from "../../../logic/chat"
 import { getAccessToken, getMessages } from "../../../controller/http_client"
-import { useCookies } from "react-cookie"
 import BackTop from "../BackToTop"
 
 export default function Chat(){
@@ -59,7 +59,7 @@ export default function Chat(){
                 chatLog.map((item) => (
                     <ChatItem className={isMessageBot(item) ? "bot-message" : "customer-message"}>
                         <span>
-                            <strong>{isMessageBot(item) ? "Smartest:" : "Você:"}</strong> {item.content}
+                            <strong>{isMessageBot(item) ? "Smartest:" : "Você:"}</strong> <span dangerouslySetInnerHTML={{__html: setHTML(item)!}}/>
                         </span>
                     </ChatItem>
                 ))
