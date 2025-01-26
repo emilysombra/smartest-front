@@ -26,9 +26,11 @@ export const ChatItem = styled.div`
 
     &.bot-message{
         justify-content: left;
+        text-align: left;
     }
 
     &.customer-message{
         justify-content: right;
+        text-align: right;
     }
 `
