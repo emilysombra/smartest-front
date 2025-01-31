@@ -10,6 +10,7 @@ export default function Grid({data=[], type='courses'}: GridProps) {
             
             {data.map((item: Item) => (
                 <Link
+                    key={item.id}
                     to={`${type}/${item.id?.toString()}`}>
                     <GridItem key={item.id?.toString()}>
                         {item.title}

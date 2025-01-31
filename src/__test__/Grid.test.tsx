@@ -1,8 +1,16 @@
 import '@testing-library/jest-dom'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import Grid from '../view/components/grid'
 
-test("Renders the main page", () => {
-    render(<Grid data={[]} type={'courses'} />)
-    expect(true).toBeTruthy()
+test("Renders the grid component", () => {
+    const data = [{
+        id: 1,
+        title: "teste",
+    }]
+
+    render(<BrowserRouter>
+                <Grid data={data} type={'courses'} />
+            </BrowserRouter>)
+    expect(screen.getByText("teste")).toBeInTheDocument()
 })
